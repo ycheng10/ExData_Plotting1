@@ -1,10 +1,10 @@
 # loading dataset file
 hpc <- read.csv("./data/household_power_consumption.txt", header=T, sep=';', na.strings="?", 
                nrows=2075259, check.names=F, stringsAsFactors=F, comment.char="", quote='\"')
-hpc$Date <- strptime(paste(ECP$Date,ECP$Time),"%d/%m/%Y %H:%M:%S")
+hpc$Date <- strptime(paste(hpc$Date,hpc$Time),"%d/%m/%Y %H:%M:%S")
 
 # Subsetting the data with desired records
-SelData=subset(ECP,(ECP$Date>=strptime("2007-02-01","%Y-%m-%d")&(ECP$Date<strptime("2007-02-02","%Y-%m-%d"))))
+SelData=subset(hpc,(hpc$Date>=strptime("2007-02-01","%Y-%m-%d")&(hpc$Date<strptime("2007-02-02","%Y-%m-%d"))))
 rm(hpc)
 
 
